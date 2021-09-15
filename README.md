@@ -2,7 +2,7 @@
 ## Authors
 * **Lubna Fairuz Zafira** - *1806235624* - *A*
 
-## Tutorial 1
+## Tutorial 2
 ### What I have learned today
 ### Github
 
