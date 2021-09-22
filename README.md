@@ -37,7 +37,6 @@ Link tersebut akan menampilkan hasil seluruh object kebunSafari yang berada dala
 ### What I did not understand
 - [ ] Mana yang lebih banyak diimplementasikan pada umumnya, @RequestParam ataukah @PathVariable, mengapa?
 
-
 ## Tutorial 1
 ### What I have learned today
 ### Github
