@@ -2,6 +2,38 @@
 ## Authors
 * **Lubna Fairuz Zafira** - *1806235624* - *A*
 
+## Tutorial 3
+### What I have learned today
+### Github
+
+1. Tolong jelaskan secara singkat apa kegunaan dari anotasi-anotasi yang ada pada model (@AllArgsConstructor, @NoArgsConstructor, @Setter, @Getter, @Entity, @Table) 
+@AllArgsConstructor == Agar dapat menginjeksi konstruktor sehingga pada saat membuat object maka semua nilai diinisialisasi
+@NoArgsConstructor == Agar dapat melakukan injeksi dengan setter sehingga saat membuat object maka nilai dan dependensi dapat diperbaharui kemudian dengan menggunakan setter.
+@Setter == men-generate method setter tanpa perlu mendefinisikannya method setter
+@Getter == men-generate method getter tanpa perlu mendefinisikannya method setter
+@Entity == untuk dapat menyimpan data dari database yang kemudian dapat direpresentasikan dalam object-oriented
+@Table == untuk dapat melakukan pemetaan entity dan juga relasional pada database
+
+2.Pada class CabangDB, terdapat method findByNoCabang, apakah kegunaan dari method tersebut? 
+Untuk mencari cabang berdasarkan nomor cabang yang didapatkan dari parameter method tersebut kemudian hasil temuan data cabang tersebut disimpan (bisa dalam variable). Pada dasarnya method tersebut merupakan method bawaan dari JPA repository. Pada implementasi tutorial-3 sendiri, method tersebut akan dipanggil untuk memudahkan mendapatkan data Cabang berdasarkan NoCabang.
+
+3. Jelaskan perbedaan kegunaan dari anotasi @JoinTable dan @JoinColumn 
+@JoinTable akan membuat tabel terpisah untuk menyimpan hubungan 2 tabel, sementara @JoinColumn akan menentukan id dari target tabel entitasnya. Dengan kata lain, @JoinTable menyimpan id dari kedua tabel ke dalam tabel terpisah dan @JoinColumn menyimpan id dari tabel lain di kolom baru.
+
+4. Pada class PegawaiModel, digunakan anotasi @JoinColumn pada atribut cabang, apa kegunaan dari name, referencedColumnName, dan nullable dalam anotasi tersebut? dan apa perbedaan nullable dan penggunaan anotasi @NotNull 
+name == menyimpan nama kolom yang berisi id dari tabel lain dengan nama “noCabang”
+referencedColumnName ==  mendefinisikan nama tabel yang dimaksud untuk kemudian id nya dapat tersimpan di kolom yang telah didefinisikan pada bagian nama.
+nullable == memastikan apakah informasi id pada kolom penyimpan tersebut boleh berisikan informasi null (kosong) atau tidak. Dalam kasus ini, tidak boleh ada informasi yang kosong. Perbedaannya dengan @NotNull adalah pada jenis kolomnya, dimana @NotNull berfungsi untuk memastikan kolom pada tabel saat insiatasi data tersebut berisi informasi kosong atau tidak. 
+
+5. Jelaskan kegunaan FetchType.LAZY, CascadeType.ALL, dan FetchType.EAGER
+FetchType.LAZY == jenis fetch ini menandakan bahwa entitas dari child object diambil hanya saat digunakan saja
+CascadeType.ALL == sebagai penanda apabila salah satu entitas diubah/dihapus maka akan mempengaruhi seluruh entitas yang berhubungan.dengan entitas tersebut.
+FetchType.EAGER == jenis fetch ini menandakan bahwa seluruh entitas dari child object di-load saat dilakukan fetch pada parent object
+
+### What I did not understand
+- [ ] Mengapa saat mengisi data (cabang) id yang digenerate melanjutkan dari data yang telah dihapus?
+
+
 ## Tutorial 2
 ### What I have learned today
 ### Github
