@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalTime;
+import java.lang.Boolean;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,5 +42,11 @@ public class PegawaiServiceImpl implements PegawaiService {
 
     @Override
     public void deletePegawai(PegawaiModel pegawai){pegawaiDb.delete(pegawai);}
+
+    @Override
+    public boolean isEmpty(String namaPegawai){
+        Optional<PegawaiModel> pegawai = pegawaiDb.findByNamaPegawai(namaPegawai);
+        return pegawai.isEmpty();
+    }
 
 }

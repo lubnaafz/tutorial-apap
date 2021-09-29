@@ -11,4 +11,6 @@ import java.util.Optional;
 @Repository
 public interface PegawaiDb extends JpaRepository<PegawaiModel, Long>{
     Optional<PegawaiModel> findByNoPegawai(Long noPegawai);
+    Optional<PegawaiModel> findByNamaPegawai(String namaPegawai);
+    boolean existsByNamaPegawai(String namaPegawai);
 }

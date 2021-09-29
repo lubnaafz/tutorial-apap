@@ -12,4 +12,5 @@ public interface PegawaiService {
     PegawaiModel getPegawaiByNoPegawai(Long noPegawai);
     List<PegawaiModel> getPegawaiList();
     void deletePegawai(PegawaiModel pegawai);
+    boolean isEmpty(String namaPegawai);
 }

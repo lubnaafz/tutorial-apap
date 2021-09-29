@@ -26,10 +26,10 @@ public class PegawaiController {
             Model model){
         PegawaiModel pegawai = new PegawaiModel();
         CabangModel cabang = cabangService.getCabangByNoCabang(noCabang);
-        pegawai.setCabang(cabang);
-        model.addAttribute("noCabang", noCabang);
-        model.addAttribute("pegawai", pegawai);
-        return "form-add-pegawai";
+            pegawai.setCabang(cabang);
+            model.addAttribute("noCabang", noCabang);
+            model.addAttribute("pegawai", pegawai);
+            return "form-add-pegawai";
     }
 
     @PostMapping("/pegawai/add")
@@ -37,10 +37,12 @@ public class PegawaiController {
             @ModelAttribute PegawaiModel pegawai,
             Model model
     ){
-        pegawaiService.addPegawai(pegawai);
-        model.addAttribute("noCabang", pegawai.getCabang().getNoCabang());
-        model.addAttribute("namaPegawai", pegawai.getNamaPegawai());
-        return "add-pegawai";
+        if(pegawaiService.isEmpty(pegawai.getNamaPegawai())) {
+            pegawaiService.addPegawai(pegawai);
+            model.addAttribute("noCabang", pegawai.getCabang().getNoCabang());
+            model.addAttribute("namaPegawai", pegawai.getNamaPegawai());
+            return "add-pegawai";
+        }return "error";
     }
 ///////////////////////////////////////////////////
 
