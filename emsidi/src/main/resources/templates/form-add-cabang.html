@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
-    <title>Emsidi</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"></head>
+    <meta charset="UTF-8">
+    <title> Emsidi </title>
+    <object th:include="fragments/fragment :: css" th:remove="tag"></object>
+    <object th:include="fragments/fragment :: js" th:remove="tag"></object>
+</head>
 <body>
+<nav th:replace="fragments/fragment :: navbar('Cabang')"></nav>
 <div class="container">
     <div class="card m-4 p-4">
         <div class="card-body">
@@ -30,6 +34,46 @@
                     Waktu Tutup : <br>
                     <input required class="form-control" type="time" name="waktuTutup" />
                     <br><br>
+
+                    <a class="btn btn-primary" th:href="@{/cabang/add/}" value="addRow">Add Row</a>
+
+                    <input type="hidden" th:field="*{noCabang}" />
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="menu, iterationStatus : ${listMenuTemp}">
+                                    <td>
+                                        <div class="form-group">
+                                            <!--<select th:field="*{listMenu[__${iterationStatus.index}__]}" name="menu" id="menu">-->
+                                            <select th:field="*{listMenu}" name="menu" id="menu">
+                                                <option th:each="menu, iterationStatus : ${listMenu}"
+                                                        th:value="${menu.noMenu}"
+                                                        th:text="${menu.namaMenu}"
+                                                        th:selected="${menu.namaMenu}"
+                                                ></option>
+                                            </select>
+                                        </div>
+                                        <!--<div class="form-group">
+                                            <select th:field="*{listMenu[__${iterationStatus.index}__].namaMenu}">
+                                                <option th:each="listMenu, iterationStatus : ${listMenu}"
+                                                        th:value="${listMenu[__${iterationStatus.index}__].noMenu}"
+                                                        th:text="${listMenu[__${iterationStatus.index}__].namaMenu}"
+                                                </option>
+                                            </select>
+                                        </div>-->
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-danger" th:href="@{/cabang/add/}" value="deleteRow">Delete</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
 
                     <button class="btn btn-primary" type="submit">Submit</button>
                     <a class="btn btn-primary" href="/">Cancel</a>

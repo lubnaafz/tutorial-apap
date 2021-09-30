@@ -1,14 +1,21 @@
 package apap.tutorial.emsidi.controller;
 
 import apap.tutorial.emsidi.model.CabangModel;
+import apap.tutorial.emsidi.model.MenuModel;
 import apap.tutorial.emsidi.model.PegawaiModel;
 import apap.tutorial.emsidi.service.CabangService;
+import apap.tutorial.emsidi.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import java.awt.*;
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,8 +26,19 @@ public class CabangController {
     @Autowired
     private CabangService cabangService;
 
+    @Autowired
+    private MenuService menuService;
+
+    public ArrayList<MenuModel> listMenuTemp = new ArrayList<MenuModel>();
+
     @GetMapping("/cabang/add")
-    public String addCabangForm(Model model){
+    public String addCabangForm(
+            Model model
+    ){
+        listMenuTemp.add(new MenuModel());
+
+        model.addAttribute("listMenuTemp", listMenuTemp);
+        model.addAttribute("listMenu", menuService.getListMenu());;
         model.addAttribute("cabang", new CabangModel());
         return "form-add-cabang";
     }
@@ -54,6 +72,7 @@ public class CabangController {
         List<PegawaiModel> listPegawai = cabang.getListPegawai();
 
         model.addAttribute("cabang", cabang);
+        model.addAttribute("listMenu", cabang.getListMenu());
         model.addAttribute("listPegawai", listPegawai);
 
         return "view-cabang";
@@ -104,5 +123,48 @@ public class CabangController {
             return "delete-cabang";
         }
         return "error";
+    }
+/////////////////////////////////////////////////////////////////
+    @PostMapping(value="/cabang/add", params = {"addRow"})
+    public String addRow(
+            final BindingResult bindingResult,
+            Model model
+    ){
+        listMenuTemp.add(new MenuModel());
+
+        model.addAttribute("listMenuTemp", listMenuTemp);
+        model.addAttribute("listMenu", menuService.getListMenu());
+        model.addAttribute("cabang", new CabangModel());
+        return "form-add-cabang";
+    }
+
+    @PostMapping(value="/cabang/add", params={"deleteRow"})
+    public String deleteRow(
+            final BindingResult bindingResult,
+            final HttpServletRequest req,
+            Model model
+    ){
+        int indexRow = Integer.valueOf(req.getParameter("deleteRow"));
+        listMenuTemp.remove(indexRow);
+
+        model.addAttribute("listMenuTemp", listMenuTemp);
+        model.addAttribute("listMenu", menuService.getListMenu());
+        model.addAttribute("cabang", new CabangModel());
+        return "form-add-cabang";
+    }
+
+    @PostMapping(value="/cabang/add/{noCabang}", params={"save"})
+    public String cabangAddAllSubmit(
+            @ModelAttribute CabangModel cabang,
+            Model model
+    ){
+        ArrayList<MenuModel> listMenuTemp = new ArrayList<MenuModel>();
+        for(MenuModel menu : listMenuTemp){
+            listMenuTemp.add(menu);
+        }
+        cabang.setListMenu(listMenuTemp);
+
+        model.addAttribute("cabang",new CabangModel());
+        return "add-cabang";
     }
 }
