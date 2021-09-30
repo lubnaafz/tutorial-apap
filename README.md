@@ -5,6 +5,18 @@
 ## Tutorial 3
 ### What I have learned today
 ### Github
+1. Jelaskan perbedaan th:include dan th:replace! 
+_______ th:include = akan menyisipkan fragment yang ditentukan sebagai body tag hostnya termasuk fragment tag
+_______ th:replace = menggantikan host tag dengan fragment yang kemudian akan menghapus host tag dan menambahkan fragment yang ditentukan
+2. Jelaskan apa fungsi dari th:object! 
+_______ Fungsi dari th:object adalah menentukan yang akan diperoleh dari formulir yang telah dihubungkan
+3. Jelaskan perbedaan dari * dan $ pada saat penggunaan th:object! Kapan harus dipakai?
+_______ Pada dasarnya, * dari th:object berfungsi untuk mengambil semua object, sementara $ dapat mengambil spesifikasi tertentu seperti atribut dari object tersebut.
+
+
+## Tutorial 3
+### What I have learned today
+### Github
 
 1. Tolong jelaskan secara singkat apa kegunaan dari anotasi-anotasi yang ada pada model (@AllArgsConstructor, @NoArgsConstructor, @Setter, @Getter, @Entity, @Table) 
 @AllArgsConstructor == Agar dapat menginjeksi konstruktor sehingga pada saat membuat object maka semua nilai diinisialisasi
