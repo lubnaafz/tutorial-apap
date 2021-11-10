@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalTime;
+
 @Controller
 public class PegawaiController {
     @Qualifier("pegawaiServiceImpl")
@@ -50,9 +52,11 @@ public class PegawaiController {
             Model model
     ){
         PegawaiModel pegawai = pegawaiService.getPegawaiByNoPegawai(noPegawai);
-        Long noCabang = pegawai.getCabang().getNoCabang();
-        if(cabangService.isCabangClose(noCabang)) {
-            model.addAttribute("pegawai",pegawai);
+        CabangModel cabang = pegawai.getCabang();
+        LocalTime now = LocalTime.now();
+
+        if(now.isBefore(cabang.getWaktuBuka()) || now.isAfter(cabang.getWaktuTutup())) {
+            model.addAttribute("pegawai", pegawai);
             return "form-update-pegawai";
         }
         return "error";
@@ -74,12 +78,31 @@ public class PegawaiController {
             Model model
     ){
         PegawaiModel pegawai = pegawaiService.getPegawaiByNoPegawai(noPegawai);
-        Long noCabang = pegawai.getCabang().getNoCabang();
-        if(cabangService.isCabangClose(noCabang)) {
+        CabangModel cabang = pegawai.getCabang();
+        LocalTime now = LocalTime.now();
+
+        if(now.isBefore(cabang.getWaktuBuka()) || now.isAfter(cabang.getWaktuTutup())) {
             pegawaiService.deletePegawai(pegawai);
             model.addAttribute("noPegawai", pegawai.getNoPegawai());
             return "delete-pegawai";
         }
         return "error";
     }
+
+    @PostMapping("/pegawai/delete")
+    public String deletePegawaiSubmit(
+            @ModelAttribute CabangModel cabang,
+            Model model
+    ){
+        LocalTime now = LocalTime.now();
+        if (now.isBefore(cabang.getWaktuBuka()) || now.isAfter(cabang.getWaktuTutup())){
+            for (PegawaiModel pegawai: cabang.getListPegawai()) {
+                pegawaiService.deletePegawai(pegawai);
+            }
+            model.addAttribute("noCabang", cabang.getNoCabang());
+            return "delete-pegawai";
+        }
+        return "error";
+    }
+
 }

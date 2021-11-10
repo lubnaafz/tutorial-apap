@@ -14,4 +14,5 @@ public interface CabangService {
     List<CabangModel> getCabangAsc();
     void deleteCabang(CabangModel cabang);
     boolean isCabangClose(Long noCabang);
+
 }
