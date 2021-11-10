@@ -2,6 +2,23 @@
 ## Authors
 * **Lubna Fairuz Zafira** - *1806235624* - *A*
 
+## Tutorial 4
+### What I have learned today
+### Github
+1. Apa itu Postman? Apa kegunaannya? 
+=== postman adalah sebuah aplikasi sebagai REST CLIENT yang berfungsi untuk membantu para developer melakukan percobaan API di dalamnya. Pada tutorial kali ini digunakan fitur Collection
+
+2. Jelaskan fungsi dari anotasi @ dan @JsonProperty. 
+=== Anotasi @JsonIgnoreProperties untuk mengabaikan atribut yang sebenarnya diperlukan untuk memetakan hasil format JSON. Anotasi @JsonProperty untuk membantu memetakan nama atribut dengan menggunakan format JSON.
+
+3. Apa kegunaan atribut WebClient? 
+WebClient adalah interface yang berfungsi sebagai first point dalam melakukan web request. Biasanya webClient digunakan untuk memanggil remote REST Services, membandingkan RestTemplate sehingga client dapat lebih reaktif
+
+4. Apa itu ResponseEntity dan BindingResult? Apa kegunaannya?
+ResponseEntity untuk representasi HTTP response: status code, headers, dan body. Digunakan pada method @RestController yang dikembalikan berupa tipe data yang diinginkan. 
+BindingResult adalah objek pada Spring, berfungsi untuk menyimpan hasil validasi dan binding serta kemungkinan error yang terjadi.
+
+
 ## Tutorial 3
 ### What I have learned today
 ### Github
