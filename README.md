@@ -2,6 +2,30 @@
 ## Authors
 * **Lubna Fairuz Zafira** - *1806235624* - *A*
 
+## Tutorial 6
+### What I have learned today
+### Github
+
+1. Jelaskan secara singkat perbedaan Otentikasi dan Otorisasi! Di bagian mana (dalam kode yang telah anda buat) konsep tersebut diimplementasi? 
+___Otentikasi > Memastikan bahwa user sudah terdaftar ada sistem (Contoh implementasinya di halaman login dan logout, dimana hanya bisa mengakses sistem apabila sudah terdaftar sebagai user) 
+*Kode:  .anyRequest().authenticated()
+___Otorisasi > memastikan bahwa role user boleh mengakses data tertentu (Contoh implementasinya di hak akses pada lihat daftar user, tambah dan hapus user yang hanya bisa dilakukan oleh role admin saja) 
+*Kode: .authorizeRequests() dan sec:authorize pada HTML
+
+
+2. Apa itu BCryptPasswordEncoder? Jelaskan secara singkat cara kerja dan tujuannya. 
+Adalah salah satu implementasi untuk melakukan encoding pada password dengan menerapkan hashing yang kuat. Cara kerjanya dengan menggunakan algoritma adaptif hashing, yaitu mentransformasikan dari character string menjadi value yang panjangnya sudah ditentukan
+
+3. Apakah penyimpanan password sebaiknya menggunakan encryption atau hashing? Mengapa demikian? 
+Sebaiknya menggunakan encryption untuk melindungi keamanan dari para hacker 
+
+4. Jelaskan secara singkat apa itu UUID beserta penggunaannya! 
+UUID adalah Universally Unique Identifier yang merepresentasikan 128-bit unique pada suatu value yang ingin ditentukan
+
+5. Apa kegunaan class UserDetailsServiceImpl.java? Mengapa harus ada class tersebut?
+Untuk mengidentifikasi user yang sedang melakukan aktivitas pada sistem tersebut atau dengan kata lain memperoleh data-data user yang terautentikasi tersebut. 
+
+
 ## Tutorial 5
 ### What I have learned today
 ### Github
