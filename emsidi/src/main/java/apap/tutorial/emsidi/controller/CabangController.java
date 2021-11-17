@@ -38,7 +38,7 @@ public class CabangController {
         listMenuTemp.add(new MenuModel());
 
         model.addAttribute("listMenuTemp", listMenuTemp);
-        model.addAttribute("listMenu", menuService.getListMenu());;
+        model.addAttribute("listMenu", menuService.getListMenu());
         model.addAttribute("cabang", new CabangModel());
         return "form-add-cabang";
     }

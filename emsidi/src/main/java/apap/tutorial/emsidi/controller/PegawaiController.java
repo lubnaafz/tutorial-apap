@@ -39,6 +39,8 @@ public class PegawaiController {
             @ModelAttribute PegawaiModel pegawai,
             Model model
     ){
+        String umur = "1";
+        pegawai.setUmur(umur);
         pegawaiService.addPegawai(pegawai);
         model.addAttribute("noCabang", pegawai.getCabang().getNoCabang());
         model.addAttribute("namaPegawai", pegawai.getNamaPegawai());
@@ -67,6 +69,8 @@ public class PegawaiController {
             @ModelAttribute PegawaiModel pegawai,
             Model model
     ){
+        String umur = "1";
+        pegawai.setUmur(umur);
         pegawaiService.updatePegawai(pegawai);
         model.addAttribute("noPegawai", pegawai.getNoPegawai());
         return "update-pegawai";

@@ -1,5 +1,6 @@
 package apap.tutorial.emsidi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ import java.util.List;
 @Setter @Getter
 @Entity
 @Table(name = "cabang")
+@JsonIgnoreProperties(value = {"listPegawai"}, allowGetters = true)
 public class CabangModel implements Serializable {
 
     @Id
