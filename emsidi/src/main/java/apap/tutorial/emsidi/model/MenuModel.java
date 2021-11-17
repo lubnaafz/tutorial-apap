@@ -1,5 +1,6 @@
 package apap.tutorial.emsidi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,6 +31,7 @@ public class MenuModel implements Serializable{
     private Boolean isAvailable;
 
     @ManyToMany(mappedBy = "listMenu")
+    @JsonIgnore
     List<CabangModel> listCabang;
 
     @NotNull

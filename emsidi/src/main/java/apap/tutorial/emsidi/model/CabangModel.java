@@ -1,5 +1,6 @@
 package apap.tutorial.emsidi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -53,6 +54,7 @@ public class CabangModel implements Serializable {
     private LocalTime waktuTutup;
 
     @OneToMany(mappedBy = "cabang", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<PegawaiModel> listPegawai;
 
     @ManyToMany
@@ -61,5 +63,6 @@ public class CabangModel implements Serializable {
             joinColumns = @JoinColumn(name = "no_cabang"),
             inverseJoinColumns = @JoinColumn(name = "no_menu")
     )
+    @JsonIgnore
     List<MenuModel> listMenu;
 }

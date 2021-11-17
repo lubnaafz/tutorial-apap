@@ -57,4 +57,9 @@ public class PegawaiRestServiceImpl implements PegawaiRestService{
         }
     }
 
+    @Override
+    public List<PegawaiModel> retrieveListPegawaiByJenisKelamin(int jenisKelamin){
+        return pegawaiDb.findByJenisKelamin(jenisKelamin);
+    }
+
 }
