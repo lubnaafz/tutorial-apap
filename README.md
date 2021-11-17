@@ -2,9 +2,10 @@
 ## Authors
 * **Lubna Fairuz Zafira** - *1806235624* - *A*
 
-## Tutorial 4
+## Tutorial 5
 ### What I have learned today
 ### Github
+
 1. Apa itu Postman? Apa kegunaannya? 
 === postman adalah sebuah aplikasi sebagai REST CLIENT yang berfungsi untuk membantu para developer melakukan percobaan API di dalamnya. Pada tutorial kali ini digunakan fitur Collection
 
@@ -17,6 +18,14 @@ WebClient adalah interface yang berfungsi sebagai first point dalam melakukan we
 4. Apa itu ResponseEntity dan BindingResult? Apa kegunaannya?
 ResponseEntity untuk representasi HTTP response: status code, headers, dan body. Digunakan pada method @RestController yang dikembalikan berupa tipe data yang diinginkan. 
 BindingResult adalah objek pada Spring, berfungsi untuk menyimpan hasil validasi dan binding serta kemungkinan error yang terjadi.
+=======
+1. Jelaskan perbedaan th:include dan th:replace! 
+_______ th:include = akan menyisipkan fragment yang ditentukan sebagai body tag hostnya termasuk fragment tag
+_______ th:replace = menggantikan host tag dengan fragment yang kemudian akan menghapus host tag dan menambahkan fragment yang ditentukan
+2. Jelaskan apa fungsi dari th:object! 
+_______ Fungsi dari th:object adalah menentukan yang akan diperoleh dari formulir yang telah dihubungkan
+3. Jelaskan perbedaan dari * dan $ pada saat penggunaan th:object! Kapan harus dipakai?
+_______ Pada dasarnya, * dari th:object berfungsi untuk mengambil semua object, sementara $ dapat mengambil spesifikasi tertentu seperti atribut dari object tersebut.
 
 
 ## Tutorial 3
