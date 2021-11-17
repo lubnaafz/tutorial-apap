@@ -98,5 +98,16 @@ public class PegawaiRestController {
         return pegawaiRestService.updatePegawai(noPegawai, pegawai);
     }
 
+    @GetMapping(value = "/pegawai/jenisKelamin/{jenisKelamin}")
+    private List<PegawaiModel> retrieveListPegawaiByJenisKelamin(@PathVariable("jenisKelamin") int jenisKelamin){
+        try{
+            return pegawaiRestService.retrieveListPegawaiByJenisKelamin(jenisKelamin);
+        }catch (NoSuchElementException e){
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND, "ID Pegawai Not Found."
+            );
+        }
+    }
+
 
 }
