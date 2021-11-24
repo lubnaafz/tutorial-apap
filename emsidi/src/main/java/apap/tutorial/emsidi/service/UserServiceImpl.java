@@ -1,5 +1,6 @@
 package apap.tutorial.emsidi.service;
 
+import apap.tutorial.emsidi.model.PegawaiModel;
 import apap.tutorial.emsidi.model.UserModel;
 import apap.tutorial.emsidi.repository.UserDb;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -42,5 +44,10 @@ public class UserServiceImpl implements UserService{
     @Override
     public void deleteUser(UserModel username){
         userDb.delete(username);
+    }
+
+    @Override
+    public List<UserModel> getListUserByEmail(String email){
+        return userDb.findDistinctByEmail(email);
     }
 }

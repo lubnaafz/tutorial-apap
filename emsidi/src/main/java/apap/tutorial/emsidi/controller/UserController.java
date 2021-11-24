@@ -44,9 +44,12 @@ public class UserController {
 
     @PostMapping(value = "/add")
     private String addUserSubmit(@ModelAttribute UserModel user, Model model){
-        userService.addUser(user);
-        model.addAttribute("user", user);
-        return "redirect:/";
+        if(userService.getListUserByEmail(user.getEmail()).isEmpty()){
+            userService.addUser(user);
+            model.addAttribute("user", user);
+            return "home";
+        }
+        return "error";
     }
 
     @GetMapping(value = "/delete/{username}")

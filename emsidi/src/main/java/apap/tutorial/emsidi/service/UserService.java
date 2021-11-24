@@ -11,4 +11,5 @@ public interface UserService {
     List<UserModel> findAll();
     UserModel getUserByUsername(String username);
     void deleteUser(UserModel username);
+    List<UserModel> getListUserByEmail(String email);
 }
