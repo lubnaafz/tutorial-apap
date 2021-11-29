@@ -6,6 +6,7 @@ import Badge from "@material-ui/core/Badge";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Fab } from "@material-ui/core";
 import ViewStreamIcon from '@mui/icons-material/ViewStream';
+import Theme from "../../components/Theme/index";
 
 
 export default class Home extends React.Component{
@@ -16,6 +17,7 @@ export default class Home extends React.Component{
             cartItems: [],
             cartHidden: true,
             balance: 120,
+            theme: "Light"
         };
     }
 
@@ -76,6 +78,10 @@ export default class Home extends React.Component{
     handleToggle = () => {
         const cartHidden = this.state.cartHidden;
         this.setState({ cartHidden: !cartHidden });
+    }
+
+    toggleDark = () => {
+
     }
 
     render() {
