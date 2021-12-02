@@ -17,7 +17,7 @@
 
 
 3. Masukkan jawaban dari Screenshot yang diperintahkan di halaman 9 pada Component Lifecycle pada pertanyaan ini.
-
+https://drive.google.com/file/d/1pMuIrv7BCIUtkUlNr3Mq3UO_iIPXJ6q0/view?usp=sharing
 
 4. Jelaskan fungsi dari componentDidMount, shouldComponentUpdate, componentDidUpdate, componentWillReceiveProps, componentWillUnmount. Notes : Penjelasan harus mencantumkan “kapan fungsi dipanggil” dan “use case apa saja yang biasanya menggunakan lifecycle method tersebut”.
 
